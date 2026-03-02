@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarraceno Violet | El Descanso que Transforma</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #ffffff;
+            --violet-deep: #4B0082; 
+            --violet-light: #F8F4FF; 
+            --violet-accent: #7E57C2; 
+            --text-main: #1A1A1A;
+            --text-soft: #666666;
+            --gold-star: #FFD700;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .logo { 
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            color: var(--violet-deep); 
+            text-transform: uppercase;
+            font-size: 1rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at 80% 20%, #fdfaff 0%, #ffffff 50%);
+            gap: 50px;
+        }
+
+        .hero-text { flex: 1; z-index: 2; }
+        .hero-text h1 { font-size: clamp(3rem, 5vw, 4.8rem); line-height: 1.1; margin-bottom: 25px; color: var(--violet-deep); }
+        .hero-text p { font-size: 1.2rem; color: var(--text-soft); margin-bottom: 40px; max-width: 500px; }
+
+        .hero-image-container { flex: 1; display: flex; justify-content: center; position: relative; }
+        .hero-image {
+            width: 100%;
+            max-width: 550px;
+            height: 60vh;
+            background: url('http://googleusercontent.com/image_generation_content/1') center/cover;
+            border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%;
+            box-shadow: 0 30px 60px rgba(126, 87, 194, 0.2);
+            animation: morph 10s ease-in-out infinite;
+        }
+
+        @keyframes morph {
+            0%, 100% { border-radius: 60% 40% 70% 30% / 30% 60% 40% 70%; }
+            50% { border-radius: 30% 60% 40% 70% / 60% 40% 70% 30%; }
+        }
+
+        /* --- BOTONES --- */
+        .btn-violet {
+            background-color: var(--violet-accent);
+            color: white;
+            padding: 22px 45px;
+            text-decoration: none;
+            border-radius: 100px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(126, 87, 194, 0.25);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-violet:hover { transform: translateY(-5px); background-color: var(--violet-deep); box-shadow: 0 15px 35px rgba(75, 0, 130, 0.35); }
+
+        /* --- PRUEBA SOCIAL / LOGOS --- */
+        .trust-bar {
+            padding: 50px 10%;
+            background: white;
+            text-align: center;
+            border-bottom: 1px solid var(--violet-light);
+        }
+        .trust-bar p { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; color: var(--violet-accent); margin-bottom: 30px; }
+        .logos { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; opacity: 0.5; filter: grayscale(1); }
+        .logos span { font-size: 1.2rem; font-weight: 800; }
+
+        /* --- BENEFICIOS --- */
+        .benefits { padding: 120px 10%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; background: var(--violet-light); }
+        .benefit-card { background: white; padding: 50px; border-radius: 30px; transition: 0.3s; }
+        .benefit-card:hover { transform: translateY(-10px); }
+        .benefit-card i { font-size: 2.2rem; color: var(--violet-accent); margin-bottom: 25px; }
+        .benefit-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--violet-deep); }
+
+        /* --- REVIEWS (EL MOTOR DE VENTA) --- */
+        .reviews { padding: 120px 10%; background: white; text-align: center; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 60px; }
+        .review-card { background: white; padding: 40px; border-radius: 24px; text-align: left; border: 1px solid var(--violet-light); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+        .stars { color: var(--gold-star); margin-bottom: 15px; }
+        .review-text { font-style: italic; color: var(--text-main); margin-bottom: 25px; }
+        .user { display: flex; align-items: center; gap: 15px; }
+        .user-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--violet-light); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--violet-accent); }
+
+        /* --- FAQ --- */
+        .faq { padding: 100px 10%; background: #fff; max-width: 900px; margin: 0 auto; }
+        details { padding: 25px 0; border-bottom: 1px solid var(--violet-light); cursor: pointer; }
+        summary { font-weight: 700; color: var(--violet-deep); list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::after { content: '+'; font-size: 1.5rem; }
+
+        /* --- FORMULARIO Y URGENCIA --- */
+        .order-section { padding: 120px 10%; background: var(--violet-light); text-align: center; }
+        .order-box { max-width: 600px; margin: 0 auto; background: white; padding: 60px; border-radius: 40px; box-shadow: 0 30px 70px rgba(75,0,130,0.1); }
+        .urgencia { background: #fff5f5; border: 1px solid #feb2b2; padding: 12px 25px; border-radius: 50px; display: inline-block; margin-bottom: 30px; color: #c53030; font-weight: 700; font-size: 0.85rem; }
+        
+        input { width: 100%; padding: 20px; border: 1px solid #eee; border-radius: 12px; margin-bottom: 20px; font-family: inherit; transition: 0.3s; background: #fafafa; }
+        input:focus { outline: none; border-color: var(--violet-accent); background: #fff; }
+
+        footer { padding: 60px; text-align: center; color: #aaa; font-size: 0.8rem; letter-spacing: 2px; }
+
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
+            .hero-image-container { width: 100%; height: 40vh; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .benefits { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Samay <span style="font-weight: 300;">BIENESTAR</span></div>
+        <div style="font-size: 0.7rem; color: var(--violet-accent); font-weight: 700;">PREMIUM SLEEP LAB</div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Reinventamos tu <br><i>descanso.</i></h1>
+            <p>La ingeniería del sarraceno se une a la aromaterapia. Soporte anatómico perfecto con un sutil aroma a lavanda orgánica para un sueño profundo y reparador.</p>
+            <a href="#comprar" class="btn-violet">Adquirir con 10% OFF</a>
+        </div>
+        <div class="hero-image-container">
+            <div class="hero-image"></div>
+        </div>
+    </section>
+
+    <section class="trust-bar">
+        <p>RECOMENDADO POR ESPECIALISTAS EN HIGIENE DEL SUEÑO</p>
+        <div class="logos">
+            <span>BIO-CLEAN</span>
+            <span>ECO-RELAX</span>
+            <span>ZEN-LIFE</span>
+            <span>SLEEP-TECH</span>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="benefit-card">
+            <i class="fas fa-wind"></i>
+            <h3>Adiós al calor</h3>
+            <p>Las cáscaras de sarraceno permiten un flujo de aire 360°. Mantén tu cabeza fresca incluso en las noches más calurosas.</p>
+        </div>
+        <div class="benefit-card">
+            <i class="fas fa-feather"></i>
+            <h3>Cero Presión</h3>
+            <p>A diferencia de la espuma que empuja hacia arriba, el sarraceno se amolda pasivamente eliminando puntos de dolor.</p>
+        </div>
+        <div class="benefit-card">
+            <i class="fas fa-shield-heart"></i>
+            <h3>10 Años de Vida</h3>
+            <p>Una inversión duradera. No pierde su forma ni su soporte con el paso de los años. Calidad certificada.</p>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2>Lo que dicen nuestros clientes</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star" stroke="currentColor"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">"Increíble. Mis dolores cervicales han desaparecido por completo."</p>
+                <div class="user">
+                    <div class="user-avatar">LA</div>
+                    <div><p style="font-weight: 700;">Laura Almagro</p><p style="font-size: 0.7rem; color: var(--violet-accent);">Cliente Verificada</p></div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="review-text">"El seguimiento de mi envío fue en tiempo real, muy profesional. La almohada es firme pero extremadamente cómoda."</p>
+                <div class="user">
+                    <div class="user-avatar">JP</div>
+                    <div><p style="font-weight: 700;">Javier Prieto</p><p style="font-size: 0.7rem; color: var(--violet-accent);">Cliente Verificado</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <h2 style="text-align: center; margin-bottom: 50px;">Resolviendo tus dudas</h2>
+        <details>
+            <summary>¿Se puede ajustar la altura?</summary>
+            <p style="padding-top: 15px; color: var(--text-soft);">Sí, todas nuestras almohadas vienen con una cremallera lateral para que puedas retirar o añadir cáscaras hasta encontrar tu altura ideal.</p>
+        </details>
+        <details>
+            <summary>¿Es apta para alérgicos?</summary>
+            <p style="padding-top: 15px; color: var(--text-soft);">Absolutamente. El sarraceno es naturalmente hipoalergénico y nuestras cáscaras pasan por un proceso de triple limpieza térmica.</p>
+        </details>
+    </section>
+
+    <section id="comprar" class="order-section">
+        <div class="order-box">
+            <div class="urgencia">
+                <i class="fas fa-bolt"></i> ¡Solo quedan <span id="stock">12</span> unidades en stock!
+            </div>
+            <h2>Tu viaje al relax comienza aquí.</h2>
+            <p style="color: var(--text-soft); margin-bottom: 40px;">Introduce tus datos para acceder al descuento exclusivo de esta semana.</p>
+            
+            <form>
+                <input type="text" placeholder="Tu nombre completo" required>
+                <input type="email" placeholder="Tu mejor email" required>
+                <button type="submit" class="btn-violet" style="width: 100%;">Reservar mi Almohada</button>
+            </form>
+            <p style="margin-top: 25px; font-size: 0.75rem; color: var(--violet-accent); font-weight: 700;">
+                <i class="fas fa-truck"></i> LOGÍSTICA PREMIUM CON SEGUIMIENTO DE ENVÍO
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 SARRACENO VIOLET LABS. INNOVACIÓN Y BIENESTAR.</p>
+    </footer>
+
+    <script>
+        // Efecto de urgencia real
+        let stock = 12;
+        setInterval(() => {
+            if(stock > 2) {
+                stock--;
+                document.getElementById('stock').innerText = stock;
+            }
+        }, 20000);
+    </script>
+
+</body>
+</html>
